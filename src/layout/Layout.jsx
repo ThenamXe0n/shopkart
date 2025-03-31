@@ -1,12 +1,13 @@
 import React from "react";
-import NavBar from "../components/NavBar";
+
 import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
+import Header from "../components/Header";
 
 const Layout = () => {
   return (
     <>
-      <NavBar />
+      <Header />
       <main className="min-h-[80vh]">
         <Outlet />
       </main>
