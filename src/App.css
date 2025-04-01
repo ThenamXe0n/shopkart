@@ -9,3 +9,19 @@
 .Tabbtn:hover ~ #icon {
   color: white !important;
 }
+
+.skrewOpenAnimate {
+  animation-name: skrewOpen;
+  animation-duration: 1s;
+}
+
+@keyframes skrewOpen {
+  0% {
+    transform: translateX(80px) skewX(70deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) skewX(0deg);
+    opacity: 1;
+  }
+}

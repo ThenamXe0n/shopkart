@@ -55,36 +55,39 @@ const Header = () => {
 
       {/* ----------------------- 2 ----------------------------------- */}
 
-      <div className="flex gap-2 w-screen border-y-[1px] py-5 pl-24">
+      <div
+        onMouseLeave={() => {
+          activeTabRef.current = "";
+          setActiveTab(activeTabRef.current);
+        }}
+        className="flex relative gap-2 w-screen border-y-[1px] py-5 pl-24"
+      >
         {" "}
         {dataitem.map((item, idx) => (
           <div
             key={idx}
-            onMouseLeave={() => {
-              activeTabRef.current = "";
-              setActiveTab(activeTabRef.current);
-            }}
             onMouseEnter={() => {
               activeTabRef.current = item;
               setActiveTab(activeTabRef.current);
             }}
-            className="relative"
           >
             <Tabbtn btnName={item.nav} />
             {activeTab === item && (
-              <div className="min-h-80 p-3 flex items-center justify-start gap-x-11 absolute top-14 w-fit shadow-xl shadow-gray-400">
+              <div className=" skrewOpenAnimate min-h-80 py-3 px-5 flex items-center justify-start gap-x-11 absolute top-20 left-28 w-fit shadow-xl shadow-gray-400">
                 {item.subNav.map((sub, subIdx) => (
                   <div key={subIdx}>
-                   <Link to={sub?.href}> <div className="size-60 rounded-xl border overflow-hidden">
-                      <img
-                        className="h-full w-full object-cover"
-                        src={sub?.img}
-                        alt={sub?.title}
-                      />
-                    </div>
+                    <Link to={sub?.href}>
+                      {" "}
+                      <div className="size-60 rounded-xl border overflow-hidden">
+                        <img
+                          className="h-full w-full object-cover"
+                          src={sub?.img}
+                          alt={sub?.title}
+                        />
+                      </div>
                     </Link>
 
-                    <h3 className="text-[#212121] mt-3 text-center text-2xl capitalize font-normal ">
+                    <h3 className="text-[#212121] mt-3 text-center text-xl capitalize font-medium ">
                       {sub?.title}
                     </h3>
                   </div>

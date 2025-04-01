@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className="min-h-[80vh]">
+      <main className="min-h-[80vh] px-40">
         <Outlet />
       </main>
       <Footer />

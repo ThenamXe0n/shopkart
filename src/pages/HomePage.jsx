@@ -1,14 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { path } from "../routes/path";
+import MainProductSlider from "../components/slider/MainProductSlider";
 
 const HomePage = () => {
   return (
-    <>
-      {" "}
-      <div>HomePage</div>
-     <Link to={path.SHOP}> <button>go to shop</button></Link>
-    </>
+    <section>
+      <MainProductSlider />
+    </section>
   );
 };
 
