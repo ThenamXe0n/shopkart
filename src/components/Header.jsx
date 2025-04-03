@@ -14,7 +14,7 @@ const Header = () => {
   console.log(activeTabRef.current);
 
   return (
-    <section>
+    <header className="fixed z-50">
       <section className="bg-[#fefefe] flex  h-[14vh] items-center justify-around">
         {/* --------------1.1------------ */}
         <div className="text-[#008dcb] text-2xl font-semibold flex items-center">
@@ -60,7 +60,7 @@ const Header = () => {
           activeTabRef.current = "";
           setActiveTab(activeTabRef.current);
         }}
-        className="flex relative gap-2 w-screen border-y-[1px] py-5 pl-24"
+        className="flex bg-[#2a292956]  backdrop-blur-sm relative gap-2 w-screen border-y-[1px] py-5 pl-24"
       >
         {" "}
         {dataitem.map((item, idx) => (
@@ -73,7 +73,7 @@ const Header = () => {
           >
             <Tabbtn btnName={item.nav} />
             {activeTab === item && (
-              <div className=" skrewOpenAnimate min-h-80 py-3 px-5 flex items-center justify-start gap-x-11 absolute top-20 left-28 w-fit shadow-xl shadow-gray-400">
+              <div className=" skrewOpenAnimate z-50 bg-white min-h-80 py-3 px-5 flex items-center justify-start gap-x-11 absolute top-20 left-28 w-fit shadow-xl shadow-gray-400">
                 {item.subNav.map((sub, subIdx) => (
                   <div key={subIdx}>
                     <Link to={sub?.href}>
@@ -97,7 +97,7 @@ const Header = () => {
           </div>
         ))}{" "}
       </div>
-    </section>
+    </header>
   );
 };
 
