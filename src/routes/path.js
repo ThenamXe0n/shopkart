@@ -1,4 +1,6 @@
 export const path = {
-    HOME:"/",
-    SHOP:"/shopping"
-}
+  HOME: "/",
+  SHOP: "/shopping",
+  // --------------admin--------------
+  DASHBOARD: "/admin",
+};

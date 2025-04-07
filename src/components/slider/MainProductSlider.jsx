@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { featuerProductData } from "../../data/sliderData";
+import { path } from "../../routes/path";
+import { Link } from "react-router-dom";
 const SliderNavBtn = ({ icon, className }) => {
   return (
     <div
@@ -32,6 +34,7 @@ const SliderSlide = ({ tagLine, title, offer, productImg }) => {
         </h3>
         <h2 className="text-6xl font-semibold uppercase">{title}</h2>
         <p className="text-xl">{offer}</p>
+       <Link to={path.SHOP}> <button className="px-2 py-1 hover:text-white bg-white text-black font-bold text-center w-fit rounded-md hover:bg-blue-950 duration-200 "> Shop now</button></Link>
       </div>
       <div data-aos="fade-left" className="h-64 w-64 -translate-x-16">
         <img src={productImg} alt={title} className="h-full w-auto" />

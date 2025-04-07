@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Breadcrumbs from "../components/ui-mini/Breadcrumbs";
+import FilterSideBar from "../components/FilterSideBar";
+import ProductCard from "../components/card/ProductCard";
+import { smartPhone } from "../data/topSmartphonData";
 
 const ShopPage = () => {
+  const extractedbrand = [...new Set(smartPhone.map((item) => item.brand))];
+  console.log("brand", extractedbrand);
+  const [filter,setFilter] = useState(extractedbrand)
   return (
     <section>
       <Breadcrumbs navPaths={["mens", "clothing", "topwear", "shirt"]} />
@@ -23,8 +29,25 @@ const ShopPage = () => {
         </div>
       </div>
       <div className="grid grid-cols-6 gap-2">
-        <aside className="col-span-1 h-screen w-full border-2"></aside>
-        <div id="product-section" className="col-span-5 h-screen w-full border-2"></div>
+        <aside className="col-span-1 w-full border-2">
+          <FilterSideBar filter={filter} setFilter={setFilter} brands={extractedbrand} />
+        </aside>
+        <div id="product-section" className="col-span-5  w-full border-2">
+          <div className="w-11/12 mx-auto gap-x-3 gap-y-5 m-5 grid grid-cols-4">
+            {smartPhone.filter((item)=>filter.includes(item.brand)).map((phone, phoneIdx) => (
+              <div key={phoneIdx}>
+                <ProductCard
+                  brand={phone.brand}
+                  title={phone.title}
+                  phoneImg={phone.phoneImg}
+                  price={phone.price}
+                  mrp={phone.mrp}
+                  save={phone.save}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

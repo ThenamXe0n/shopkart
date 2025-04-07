@@ -7,6 +7,7 @@ import { TfiMenuAlt } from "react-icons/tfi";
 import Tabbtn from "./Tabbtn";
 import { dataitem } from "../data/Listdata";
 import { Link } from "react-router-dom";
+import { path } from "../routes/path";
 
 const Header = () => {
   let activeTabRef = useRef();
@@ -21,7 +22,9 @@ const Header = () => {
           <div className="w-[40px] h-[40px] bg-[#f3f8fa] flex items-center rounded-sm justify-center">
             <BiMenuAltLeft size={"28px"} />
           </div>
-          <p>ShopKart</p>
+          <Link to={path.HOME}>
+            <p>ShopKart</p>
+          </Link>
         </div>
         {/* --------------- 1.2---------------------- */}
         <div className="bg-[#f3f8fa] flex items-center justify-between w-[30vw] h-12 p-2 px-3 rounded-sm text-[#008dcb]">

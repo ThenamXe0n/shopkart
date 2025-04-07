@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <main className="min-h-[80vh] px-40 pt-[12rem]">
+      <main className="min-h-[80vh] overflow-scroll px-40 pt-[12rem]">
         <Outlet />
       </main>
       <Footer />
