@@ -1,17 +1,18 @@
 import React from "react";
-import { smartPhone } from "../data/topSmartphonData";
 import ProductCard from "../components/card/ProductCard";
 import { path } from "../routes/path";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const BestDealSection = () => {
+  const products = useSelector((state) => state.product.products);
   return (
     <section className="py-10">
       <div className=" flex items-center border-b  justify-between px-2 w-full ">
         <h3 className="py-2">
           Grab The best Deal{" "}
           <strong className="text-[blue] border-b-2 py-2 border-b-blue-700">
-            Smartphone
+            products
           </strong>{" "}
         </h3>
         <div>
@@ -22,14 +23,18 @@ const BestDealSection = () => {
         </div>
       </div>
       <div className="grid mt-4 grid-cols-5">
-        {smartPhone.map((phone, phoneIdx) => (
+        {products.map((phone, phoneIdx) => (
           <div key={phoneIdx}>
             <ProductCard
+              brand={phone.brand}
               title={phone.title}
-              phoneImg={phone.phoneImg}
+              phoneImg={phone.thumbnail}
               price={phone.price}
-              mrp={phone.mrp}
-              save={phone.save}
+              mrp={
+                parseInt(phone.price) +
+                parseInt((phone.price * phone?.discount) / 100)
+              }
+              save={(phone.price * phone?.discount) / 100}
             />
           </div>
         ))}

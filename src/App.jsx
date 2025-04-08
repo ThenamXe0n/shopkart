@@ -8,10 +8,15 @@ import Layout from "./layout/Layout";
 import { useEffect } from "react";
 import DashBoardLayout from "./layout/DashBoardLayout";
 import Protected from "./routes/Protected";
+import AddProductPage from "./pages/adminPages/AddProductPage";
+import { useDispatch } from "react-redux";
+import { getProductAsync } from "./redux/product/productSlice";
 
 function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
     AOS.init();
+    dispatch(getProductAsync());
   }, []);
   return (
     <>
@@ -22,10 +27,17 @@ function App() {
           <Route path={path.SHOP} element={<Shop />} />
         </Route>
         {/* ==========================DashBoard Layout==================== */}
-        <Route path={path.DASHBOARD} element={<Protected><DashBoardLayout /></Protected>}>
+        <Route
+          path={path.DASHBOARD}
+          element={
+            <Protected>
+              <DashBoardLayout />
+            </Protected>
+          }
+        >
           <Route index element={<h1>home page dashboard</h1>} />
-          <Route path="add-product" element={<h1>add product page</h1>}/>
-          <Route path="view-product" element={<h1>view product page</h1>}/>
+          <Route path="add-product" element={<AddProductPage />} />
+          <Route path="view-product" element={<h1>view product page</h1>} />
         </Route>
       </Routes>
     </>
