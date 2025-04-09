@@ -11,6 +11,7 @@ import Protected from "./routes/Protected";
 import AddProductPage from "./pages/adminPages/AddProductPage";
 import { useDispatch } from "react-redux";
 import { getProductAsync } from "./redux/product/productSlice";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
         <Route path={path.HOME} element={<Layout />}>
           <Route index element={<Home />} />
           <Route path={path.SHOP} element={<Shop />} />
+          <Route path={path.PRODUCTDETAIL} element={<ProductDetailPage/>} />
         </Route>
         {/* ==========================DashBoard Layout==================== */}
         <Route

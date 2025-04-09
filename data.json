@@ -22,6 +22,24 @@
       "discount": "",
       "stock": "200",
       "description": "testv sefwaf "
+    },
+    {
+      "id": "808d",
+      "name": "Panasonic 7 Kg Wifi Fully-Automatic Top Loading Smart Washing Machine ",
+      "price": "17490",
+      "brand": "panasonic",
+      "category": "washing machine",
+      "thumbnail": "https://m.media-amazon.com/images/I/41pR6EFj8fL._SY445_SX342_QL70_FMwebp_.jpg",
+      "discount": "24",
+      "images": [
+        "https://m.media-amazon.com/images/I/41pR6EFj8fL._SY445_SX342_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/81ckP8zIFoL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/81KftItISPL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/814nFIjatzL._SL1500_.jpg"
+      ],
+      "stock": "100",
+      "description": "Fully-Automatic Top Load Washing Machine: Affordable with Great Wash Quality, Easy to Use | Intensive Removal of Stains and Germs Capacity 7 kg: Suitable for large families | Smart washing machine: Integrates the ease and intuitive features of AI with the capabilities of a washing machine",
+      "size": "--select size--"
     }
   ],
   "user": [],

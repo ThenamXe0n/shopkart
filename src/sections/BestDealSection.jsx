@@ -23,7 +23,7 @@ const BestDealSection = () => {
         </div>
       </div>
       <div className="grid mt-4 grid-cols-5">
-        {products.map((phone, phoneIdx) => (
+        {Array.isArray(products) && products.map((phone, phoneIdx) => (
           <div key={phoneIdx}>
             <ProductCard
               brand={phone.brand}
