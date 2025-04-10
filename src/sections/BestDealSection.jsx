@@ -23,18 +23,19 @@ const BestDealSection = () => {
         </div>
       </div>
       <div className="grid mt-4 grid-cols-5">
-        {Array.isArray(products) && products.map((phone, phoneIdx) => (
-          <div key={phoneIdx}>
+        {Array.isArray(products) && products.map((product, productIdx) => (
+          <div key={productIdx}>
             <ProductCard
-              brand={phone.brand}
-              title={phone.title}
-              phoneImg={phone.thumbnail}
-              price={phone.price}
+            id={product?.id}
+              brand={product?.brand}
+              title={product?.title}
+              productImg={product?.thumbnail}
+              price={product?.price}
               mrp={
-                parseInt(phone.price) +
-                parseInt((phone.price * phone?.discount) / 100)
+                parseInt(product?.price) +
+                parseInt((product?.price * product?.discount) / 100)
               }
-              save={(phone.price * phone?.discount) / 100}
+              save={(product?.price * product?.discount) / 100}
             />
           </div>
         ))}

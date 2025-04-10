@@ -41,15 +41,19 @@ const ShopPage = () => {
           <div className="w-11/12 mx-auto gap-x-3 gap-y-5 m-5 grid grid-cols-4">
             {products
               .filter((item) => filter.includes(item.brand))
-              .map((phone, phoneIdx) => (
-                <div key={phoneIdx}>
+              .map((product, prodIdx) => (
+                <div key={prodIdx}>
                   <ProductCard
-                    brand={phone.brand}
-                    title={phone.title}
-                    phoneImg={phone.thumbnail}
-                    price={phone.price}
-                    mrp={parseInt(phone.price)+parseInt((phone.price * phone?.discount) / 100)}
-                    save={(phone.price * phone?.discount) / 100}
+                    id={product.id}
+                    brand={product.brand}
+                    title={product.title}
+                    productImg={product.thumbnail}
+                    price={product.price}
+                    mrp={
+                      parseInt(product.price) +
+                      parseInt((product.price * product?.discount) / 100)
+                    }
+                    save={(product.price * product?.discount) / 100}
                   />
                 </div>
               ))}

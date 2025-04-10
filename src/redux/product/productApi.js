@@ -18,3 +18,13 @@ export const getProductAPI = async () => {
     return { status: false };
   }
 };
+
+export const deleteProductAPI = async (productId) => {
+  try {
+    const response = await axiosInstance.delete(`/products/${productId}`);
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+    return { status: false };
+  }
+};

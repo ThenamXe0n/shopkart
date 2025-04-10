@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addProductAPI, getProductAPI } from "./productApi";
+import { addProductAPI, deleteProductAPI, getProductAPI } from "./productApi";
 
 const initialState = {
   loading: false,
@@ -22,6 +22,14 @@ export const getProductAsync = createAsyncThunk(
   }
 );
 
+export const deleteProductAsync = createAsyncThunk(
+  "product/delete",
+  async (id) => {
+    const response = await deleteProductAPI(id);
+    return response;
+  }
+);
+
 const productSlice = createSlice({
   name: "product",
   initialState,
@@ -37,6 +45,13 @@ const productSlice = createSlice({
       })
       .addCase(getProductAsync.fulfilled, (state, action) => {
         state.products = action.payload;
+      })
+      .addCase(deleteProductAsync.fulfilled, (state, action) => {
+        let deletedIdx = state.products.findIndex(
+          (product) => product.id === action.payload.id
+        );
+        console.log(deletedIdx);
+        state.products.splice(deletedIdx, 1);
       }),
 });
 

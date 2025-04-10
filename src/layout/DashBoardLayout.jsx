@@ -9,7 +9,7 @@ const DashBoardLayout = () => {
       <DashboardNavBar />
       <section className="w-screen h-[90vh] flex ">
         <div className="w-[18%] h-full"><DashboardSidebar /></div>
-        <main  className="min-h-[80vh] border-2 rounded-xl mx-auto w-[68vw]">
+        <main  className="min-h-[80vh] border-2 rounded-xl mx-auto w-[80vw]">
           <Outlet />
         </main>
       </section>

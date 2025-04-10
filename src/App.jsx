@@ -12,13 +12,14 @@ import AddProductPage from "./pages/adminPages/AddProductPage";
 import { useDispatch } from "react-redux";
 import { getProductAsync } from "./redux/product/productSlice";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import ProductTable from "./components/dashboardComponents/ProductTable";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     AOS.init();
     dispatch(getProductAsync());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -39,7 +40,7 @@ function App() {
         >
           <Route index element={<h1>home page dashboard</h1>} />
           <Route path="add-product" element={<AddProductPage />} />
-          <Route path="view-product" element={<h1>view product page</h1>} />
+          <Route path="view-product" element={<ProductTable/>} />
         </Route>
       </Routes>
     </>
